@@ -41,4 +41,11 @@ class Cart:
             for i, dvd in enumerate(self.items, start=1):
                 print(f"{i}. {dvd.title}")
             print("***************************************************")
-    
+    def sort_by_title(self):
+        self.items.sort(key=lambda dvd: dvd.title)
+        print("Cart has been sorted by title")
+
+    def sort_by_cost(self):
+        # Sắp xếp theo giá giảm dần (từ cao xuống thấp)
+        self.items.sort(key=lambda dvd: dvd.cost, reverse=True)
+        print("Cart has been sorted by cost")
