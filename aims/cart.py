@@ -27,25 +27,25 @@ class Cart:
         return sum(item.cost for item in self.items)
 
     def total_cost_with_discount(self, total, percent):
+        if not 0 <= percent <= 100:
+            raise ValueError("percent must be between 0 and 100")
         return total * (100 - percent) / 100
 
     def print_cart(self):
+        if not self.items:
+            print("The cart is empty")
+            return
 
-            # kiểm tra giỏ hàng trống:
-            if not self.items:
-                print("The cart is empty")
-                return
-    
-            print("***********************CART***********************")
-            print("Ordered Items:")
-            for i, dvd in enumerate(self.items, start=1):
-                print(f"{i}. {dvd.title}")
-            print("***************************************************")
+        print("***********************CART***********************")
+        print("Ordered Items:")
+        for i, dvd in enumerate(self.items, start=1):
+            print(f"{i}. {dvd.title}")
+        print("***************************************************")
+
     def sort_by_title(self):
         self.items.sort(key=lambda dvd: dvd.title)
         print("Cart has been sorted by title")
 
     def sort_by_cost(self):
-        # Sắp xếp theo giá giảm dần (từ cao xuống thấp)
         self.items.sort(key=lambda dvd: dvd.cost, reverse=True)
         print("Cart has been sorted by cost")
