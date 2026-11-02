@@ -21,4 +21,8 @@ class TestCart(unittest.TestCase):
         # Sắp xếp giá giảm dần nên 20.0 đứng trước 15.0
         self.assertEqual(self.cart.items[0].title, "Zootopia")
         
-    # (Giữ nguyên các hàm test cũ của bạn ở dưới nếu có)
+    def test_discount(self):
+        self.assertEqual(self.cart.total_cost_with_discount(100, 20), 80)
+
+    def test_discount_invalid_percent(self):
+        with self.assertRaises(ValueError): self.cart.total_cost_with_discount(100, 150)
