@@ -4,3 +4,4 @@
 
 - Sinh viên: Đỗ Gia Ngọc – MSSV 202417259
 - Chạy chương trình: `python main.py`
+Python >= 3.10
